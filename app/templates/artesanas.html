@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-speedometer2"></i> Dashboard Artesana</h2>
+    <span class="badge bg-warning fs-6">Modo Artesana</span>
+</div>
+
+<div class="row">
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">0</h4>
+                        <p class="card-text">Productos</p>
+                    </div>
+                    <i class="bi bi-handbag display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">0</h4>
+                        <p class="card-text">Vistas</p>
+                    </div>
+                    <i class="bi bi-eye display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">0</h4>
+                        <p class="card-text">Clientes</p>
+                    </div>
+                    <i class="bi bi-people display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="card-title">$0</h4>
+                        <p class="card-text">Ingresos</p>
+                    </div>
+                    <i class="bi bi-currency-dollar display-6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-tools"></i> Funciones de Artesana</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-plus-circle display-4 text-primary"></i>
+                        <h5 class="card-title mt-3">Agregar Productos</h5>
+                        <p class="card-text">Sube imágenes de tus artesanías y genera descripciones automáticamente.</p>
+                        <button class="btn btn-primary" disabled>Próximamente</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-images display-4 text-success"></i>
+                        <h5 class="card-title mt-3">Gestionar Catálogo</h5>
+                        <p class="card-text">Edita, actualiza o elimina tus productos del catálogo digital.</p>
+                        <button class="btn btn-success" disabled>Próximamente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

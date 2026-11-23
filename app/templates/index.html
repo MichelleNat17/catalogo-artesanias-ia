@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero-section text-center rounded">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Artesanías de Paja Toquilla</h1>
+        <p class="lead">Descubre la belleza y tradición de la comunidad de Loma Alta, Santa Elena</p>
+        
+        {% if not current_user.is_authenticated %}
+        <div class="mt-4">
+            <a href="{{ url_for('main.registro') }}" class="btn btn-light btn-lg me-2">
+                <i class="bi bi-person-plus"></i> Únete a Nosotros
+            </a>
+            <a href="{{ url_for('main.catalogo_publico') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-eye"></i> Ver Catálogo
+            </a>
+        </div>
+        {% else %}
+        <div class="mt-4">
+            {% if current_user.es_artesana() %}
+            <a href="{{ url_for('main.dashboard_artesana') }}" class="btn btn-light btn-lg me-2">
+                <i class="bi bi-speedometer2"></i> Mi Dashboard
+            </a>
+            {% endif %}
+            <a href="{{ url_for('main.catalogo_publico') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-grid"></i> Explorar Catálogo
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-handbag display-4 text-primary"></i>
+                <h5 class="card-title mt-3">Artesanías Únicas</h5>
+                <p class="card-text">Productos elaborados manualmente con técnicas ancestrales transmitidas por generaciones en la comunidad Loma Alta.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-geo-alt display-4 text-success"></i>
+                <h5 class="card-title mt-3">Origen Santa Elena</h5>
+                <p class="card-text">Artesanías auténticas provenientes de la provincia de Santa Elena, cuna de la paja toquilla ecuatoriana.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="bi bi-shield-check display-4 text-warning"></i>
+                <h5 class="card-title mt-3">Calidad Garantizada</h5>
+                <p class="card-text">Cada pieza es elaborada con los más altos estándares de calidad y atención al detalle por nuestras artesanas.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nueva sección sobre la comunidad -->
+<div class="row mt-5 bg-light rounded p-4">
+    <div class="col-md-8">
+        <h3>Sobre la Comunidad Loma Alta</h3>
+        <p class="lead">Un grupo de mujeres emprendedoras dedicadas a preservar la tradición del tejido de paja toquilla, combinando técnicas ancestrales con innovación contemporánea.</p>
+        <p>Nuestras artesanas han recibido capacitación en técnicas de tejido y resistencia de materiales, garantizando productos duraderos y de excelente calidad.</p>
+    </div>
+    <div class="col-md-4 text-center">
+        <i class="bi bi-people display-1 text-muted"></i>
+        <p class="mt-2"><strong>+20 Artesanas</strong><br>Comprometidas con su arte</p>
+    </div>
+</div>
+{% endblock %}

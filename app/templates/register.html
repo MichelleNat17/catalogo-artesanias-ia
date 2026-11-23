@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white text-center">
+                <h4 class="mb-0"><i class="bi bi-person-plus"></i> Crear Cuenta</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="mb-3">
+                        {{ form.username.label(class="form-label") }}
+                        {{ form.username(class="form-control") }}
+                        {% if form.username.errors %}
+                            <div class="text-danger">
+                                {% for error in form.username.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.email.label(class="form-label") }}
+                        {{ form.email(class="form-control") }}
+                        {% if form.email.errors %}
+                            <div class="text-danger">
+                                {% for error in form.email.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.password.label(class="form-label") }}
+                        {{ form.password(class="form-control") }}
+                        {% if form.password.errors %}
+                            <div class="text-danger">
+                                {% for error in form.password.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form.confirm_password.label(class="form-label") }}
+                        {{ form.confirm_password(class="form-control") }}
+                        {% if form.confirm_password.errors %}
+                            <div class="text-danger">
+                                {% for error in form.confirm_password.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- NUEVO CAMPO: Código de verificación -->
+                    <div class="mb-3">
+                        {{ form.codigo_verificacion.label(class="form-label") }}
+                        {{ form.codigo_verificacion(class="form-control") }}
+                        <small class="form-text text-muted">
+                            ⭐ Solo para artesanas verificadas de Loma Alta. 
+                            Si no tienes código, déjalo vacío para registrarte como público.
+                        </small>
+                        {% if form.codigo_verificacion.errors %}
+                            <div class="text-danger">
+                                {% for error in form.codigo_verificacion.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Campo rol ahora está oculto (se determina por el código) -->
+                    {{ form.rol() }}
+                    
+                    <div class="d-grid">
+                        {{ form.submit(class="btn btn-success btn-lg") }}
+                    </div>
+                </form>
+                
+                <div class="text-center mt-3">
+                    <p>¿Ya tienes cuenta? <a href="{{ url_for('main.login') }}">Inicia sesión aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

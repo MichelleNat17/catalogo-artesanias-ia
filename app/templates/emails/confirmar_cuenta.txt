@@ -1,0 +1,15 @@
+Confirma tu cuenta - Catálogo Artesanías
+
+Hola {{ usuario.username }},
+
+Gracias por registrarte en nuestro catálogo digital de artesanías de paja toquilla.
+
+Para activar tu cuenta, por favor visita el siguiente enlace:
+
+{{ url_for('main.confirmar_email', token=token, _external=True) }}
+
+Este enlace expirará en 24 horas.
+
+Si no solicitaste este registro, por favor ignora este mensaje.
+
+Comunidad Loma Alta - Artesanías de Paja Toquilla
